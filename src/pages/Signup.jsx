@@ -71,7 +71,10 @@ function Signup() {
       </div>
 
       <div className="w-full md:w-1/2 bg-white p-8 flex items-center justify-center">
-        <div className="w-full max-w-md relative">
+          
+        <div className="w-full max-w-md relative"><img src="/vivstock-purple.png"
+            alt="Welcome"
+            className="mt-8 w-[90px] relative top-[-125px] left-[-30px]  mb-[-110px]" />
           <h2 className="text-2xl font-bold mb-8 text-gray-800">Welcome to Vivstock </h2>
           {error && (
             <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
