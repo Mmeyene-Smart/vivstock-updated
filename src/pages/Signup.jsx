@@ -86,10 +86,12 @@ function Signup() {
           
         <div className="w-full max-w-md relative">
         <div className=" flex flex-col text-[14px]">
-         <img src="/vivstock-purple.png"
+          <div className="flex flex-col justify-center items-center mb-4"> 
+          <img src="/vivstock-purple.png"
             alt="Welcome"
-            className="mt-8 w-[70px] relative top-[-115px] left-[-30px]  mb-[-110px]" />
-            <p className="text-[#3d354b] relative top-[-25px] left-[-15px]">vivstock</p>
+            className="mt-8 w-[70px] " />
+            {/* <p className="text-[#3d354b] ">vivstock</p> */}
+          </div>
         </div>
        
           <h2 className="text-2xl font-bold mb-8 text-gray-800">
