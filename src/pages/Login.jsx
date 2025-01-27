@@ -68,9 +68,12 @@ function Login() {
 
       <div className="w-full md:w-1/2 bg-white p-8 flex items-center justify-center">
         <div className="w-full max-w-md">
+          
+          <div className=" flex justify-center items-center">
           <img src="/vivstock-purple.png"
             alt="Welcome"
-            className="h-[150px] w-[170px] relative top-[-115px] left-[40px]  mb-[-110px]" />
+            className="h-[150px] w-[170px] mb-[30px]" />
+          </div>
           <h2 className="text-2xl font-bold mb-4 text-gray-800">Welcome Back</h2>
           {location.state?.message && (
             <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
@@ -103,16 +106,29 @@ function Login() {
                 required
               />
             </div>
+            <div className="flex items-center justify-between relative top-[-10px]">
+              <div>
+                <label>
+                  <input type="checkbox" className="mr-1" />
+                  Remember me
+                </label>
+              </div>
+              <div>
+                <Link to="/forgot-password" className="text-[#7F3DFF]">
+                  Forgot password?
+                </Link>
+              </div>
+            </div>
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full bg-[#7F3DFF] text-white p-2 rounded-[60px] disabled:opacity-50"
+              className="w-full bg-[#7F3DFF] text-white p-2 rounded-[60px] disabled:opacity-50 relative top-[-15px]"
             >
               {isLoading ? 'Logging in...' : 'Login'}
             </button>
           </form>
 
-          <div className="mt-8 text-center">
+          <div className="-mt-2 text-center">
             <p className="text-gray-600">
               Don't have an account?{' '}
               <Link to="/signup" className="text-[#7F3DFF]">
