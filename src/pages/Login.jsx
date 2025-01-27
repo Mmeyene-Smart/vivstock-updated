@@ -70,7 +70,7 @@ function Login() {
         <div className="w-full max-w-md">
           <img src="/vivstock-purple.png"
             alt="Welcome"
-            className="h-[150px] w-[170px] relative top-[-115px] left-[30px]  mb-[-110px]" />
+            className="h-[150px] w-[170px] relative top-[-115px] left-[40px]  mb-[-110px]" />
           <h2 className="text-2xl font-bold mb-4 text-gray-800">Welcome Back</h2>
           {location.state?.message && (
             <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
