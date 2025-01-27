@@ -89,7 +89,7 @@ function Signup() {
           <div className="flex flex-col justify-center items-center mb-4"> 
           <img src="/vivstock-purple.png"
             alt="Welcome"
-            className="mt-8 w-[70px] " />
+            className="mt-8 w-[120px] " />
             {/* <p className="text-[#3d354b] ">vivstock</p> */}
           </div>
         </div>

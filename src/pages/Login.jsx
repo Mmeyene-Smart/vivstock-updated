@@ -128,7 +128,7 @@ function Login() {
             </button>
           </form>
 
-          <div className="-mt-2 text-center">
+          <div className="mt-1 text-center">
             <p className="text-gray-600">
               Don't have an account?{' '}
               <Link to="/signup" className="text-[#7F3DFF]">
