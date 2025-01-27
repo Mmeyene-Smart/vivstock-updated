@@ -1,3 +1,4 @@
+
 .typewriter {
   display: inline-block;
   overflow: hidden;
@@ -16,3 +17,6 @@
   50% { border-color: #7F3DFF; }
 }
 
+.custom-checkbox {
+  accent-color: #7F3DFF;
+}

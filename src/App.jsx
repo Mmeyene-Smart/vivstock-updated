@@ -18,6 +18,7 @@ import Signup from './pages/Signup';
 import Verify from './pages/Verify';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import Transactions from './pages/admin/Transactions';
+import ForgotPassword from './pages/ForgotPassword';
 
 function AppRoutes() {
   const location = useLocation();
@@ -26,17 +27,18 @@ function AppRoutes() {
   const hideNavbar = location.pathname === '/login' || 
                     location.pathname === '/signup' ||
                     location.pathname === '/verify' ||
+                    location.pathname === '/forgot-password' ||
                     location.pathname.includes('/trade/') || 
                     location.pathname.includes('/trader/') ||
                     location.pathname.includes('/admin/');
 
   // Always redirect to login if not authenticated, except for signup and verify pages
-  if (!user && !isAdmin && !['/login', '/signup', '/verify'].includes(location.pathname)) {
+  if (!user && !isAdmin && !['/login', '/signup', '/verify', '/forgot-password'].includes(location.pathname)) {
     return <Navigate to="/login" />;
   }
 
   // Redirect authenticated users trying to access auth pages to appropriate dashboard
-  if ((user || isAdmin) && ['/login', '/signup', '/verify'].includes(location.pathname)) {
+  if ((user || isAdmin) && ['/login', '/signup', '/verify', '/forgot-password'].includes(location.pathname)) {
     return isAdmin ? <Navigate to="/admin/users" /> : <Navigate to="/" />;
   }
 
@@ -53,6 +55,7 @@ function AppRoutes() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/verify" element={<Verify />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
           
           {/* Admin Routes */}
           <Route path="/admin/users" element={

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
-import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
+import { FaChevronDown, FaChevronUp, FaEye, FaEyeSlash } from 'react-icons/fa';
 import './Signup.css'; // Ensure the correct case for the CSS file import
 
 function Signup() {
@@ -16,6 +16,7 @@ function Signup() {
   const [showReferral, setShowReferral] = useState(false);
   const [isAgreed, setIsAgreed] = useState(false);
   const [typedText, setTypedText] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const fullText = 'Welcome to Vivstock';
   const navigate = useNavigate();
 
@@ -136,15 +137,23 @@ function Signup() {
             </div>
             <div>
               <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-700">Password</label>
-              <input
-                id="password"
-                type="password"
-                placeholder="Set Password"
-                className="w-full p-2 border rounded-[60px]"
-                value={formData.password}
-                onChange={(e) => setFormData({...formData, password: e.target.value})}
-                required
-              />
+              <div className="relative">
+                <input
+                  id="password"
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Set Password"
+                  className="w-full p-2 border rounded-[60px]"
+                  value={formData.password}
+                  onChange={(e) => setFormData({...formData, password: e.target.value})}
+                  required
+                />
+                <span
+                  className="absolute right-3 top-3 cursor-pointer"
+                  onClick={() => setShowPassword(!showPassword)}
+                >
+                  {showPassword ? <FaEyeSlash /> : <FaEye />}
+                </span>
+              </div>
             </div>
             <div>
               <p className="cursor-pointer mt-[-10px] text-gray-500 opacity-[0.7] " onClick={() => setShowReferral(!showReferral)}>

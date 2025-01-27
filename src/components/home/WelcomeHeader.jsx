@@ -1,7 +1,7 @@
 import { IoNotificationsOutline } from 'react-icons/io5';
 import { BiMessageDetail } from 'react-icons/bi';
 
-function WelcomeHeader() {
+function WelcomeHeader({ username }) {
   return (
     <div className="flex justify-between items-start">
       <div className="flex items-center gap-3">
@@ -10,7 +10,7 @@ function WelcomeHeader() {
         </div>
         <div>
           <p className="text-gray-400">Welcome 👋</p>
-          <h1 className="text-2l font-bold">@hopeubong2430</h1>
+          <h1 className="text-2l font-bold">@{username}</h1>
         </div>
       </div>
       <div className="flex gap-2">

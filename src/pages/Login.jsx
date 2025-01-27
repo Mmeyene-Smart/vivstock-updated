@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { adminCredentials } from '../data/adminCredentials';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import './Login.css'; // Ensure the correct case for the CSS file import
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -10,6 +12,7 @@ function Login() {
   });
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
   const { login } = useAuth();
@@ -97,19 +100,27 @@ function Login() {
               />
             </div>
             <div>
-              <input
-                type="password"
-                placeholder="Password"
-                className="w-full p-2 border rounded-[60px]"
-                value={formData.password}
-                onChange={(e) => setFormData({...formData, password: e.target.value})}
-                required
-              />
+              <div className="relative">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Password"
+                  className="w-full p-2 border rounded-[60px]"
+                  value={formData.password}
+                  onChange={(e) => setFormData({...formData, password: e.target.value})}
+                  required
+                />
+                <span
+                  className="absolute right-3 top-3 cursor-pointer"
+                  onClick={() => setShowPassword(!showPassword)}
+                >
+                  {showPassword ? <FaEyeSlash /> : <FaEye />}
+                </span>
+              </div>
             </div>
             <div className="flex items-center justify-between relative top-[-10px]">
               <div>
                 <label>
-                  <input type="checkbox" className="mr-1" />
+                  <input type="checkbox" className="mr-1 custom-checkbox" />
                   Remember me
                 </label>
               </div>
