@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
+import './Signup.css'; // Ensure the correct case for the CSS file import
 
 function Signup() {
   const [formData, setFormData] = useState({
@@ -14,7 +15,18 @@ function Signup() {
   const [isLoading, setIsLoading] = useState(false);
   const [showReferral, setShowReferral] = useState(false);
   const [isAgreed, setIsAgreed] = useState(false);
+  const [typedText, setTypedText] = useState('');
+  const fullText = 'Welcome to Vivstock';
   const navigate = useNavigate();
+
+  useEffect(() => {
+    let index = 0;
+    const interval = setInterval(() => {
+      setTypedText(fullText.slice(0, index + 1));
+      index = (index + 1) % (fullText.length + 1);
+    }, 80);
+    return () => clearInterval(interval);
+  }, [fullText]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -72,10 +84,17 @@ function Signup() {
 
       <div className="w-full md:w-1/2 bg-white p-8 flex items-center justify-center">
           
-        <div className="w-full max-w-md relative"><img src="/vivstock-purple.png"
+        <div className="w-full max-w-md relative">
+        <div className=" flex flex-col text-[14px]">
+         <img src="/vivstock-purple.png"
             alt="Welcome"
-            className="mt-8 w-[90px] relative top-[-115px] left-[-30px]  mb-[-110px]" />
-          <h2 className="text-2xl font-bold mb-8 text-gray-800">Welcome to Vivstock </h2>
+            className="mt-8 w-[70px] relative top-[-115px] left-[-30px]  mb-[-110px]" />
+            <p className="text-[#3d354b] relative top-[-25px] left-[-15px]">vivstock</p>
+        </div>
+       
+          <h2 className="text-2xl font-bold mb-8 text-gray-800">
+            <span>Welcome to Vivstock</span>
+          </h2>
           {error && (
             <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
               {error}
